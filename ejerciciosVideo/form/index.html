@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard Form</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="contenedor">
+
+    <form id="wizard" novalidate>
+
+      <div class="paso activo">
+        <h2>Step 1: Personal Info</h2>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <div class="botones">
+          <button type="button" data-accion="siguiente">Next</button>
+        </div>
+      </div>
+
+      <div class="paso">
+        <h2>Step 2: Contact Info</h2>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone" required>
+        <div class="botones">
+          <button type="button" data-accion="atras">Back</button>
+          <button type="button" data-accion="siguiente">Next</button>
+        </div>
+      </div>
+
+      <div class="paso">
+        <h2>Step 3: Account Setup</h2>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <div class="botones">
+          <button type="button" data-accion="atras">Back</button>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="progreso" id="progreso">
+      <div class="progreso-relleno" id="relleno"></div>
+      <button type="button" class="punto" data-ir="0" aria-label="Paso 1"></button>
+      <button type="button" class="punto" data-ir="1" aria-label="Paso 2"></button>
+      <button type="button" class="punto" data-ir="2" aria-label="Paso 3"></button>
+    </div>
+
+    <p class="exito" id="exito" hidden>Form submitted successfully!</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

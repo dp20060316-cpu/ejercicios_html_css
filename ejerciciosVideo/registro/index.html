@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro por pasos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <form id="registro" novalidate>
+      <p class="error" id="error" role="alert"></p>
+      <h2 id="titulo"></h2>
+      <div id="campos"></div>
+      <div class="acciones">
+        <button type="button" id="btnAtras" class="oculto">Atrás</button>
+        <button type="submit" id="btnSiguiente"></button>
+      </div>
+    </form>
+
+    <div class="progreso" id="indicador"></div>
+
+    <section id="resumen" hidden></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
