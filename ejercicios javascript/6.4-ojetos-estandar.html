@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>6.4 Objetos estándar</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 16px; }
+    button { padding: 6px 12px; margin-right: 8px; cursor: pointer; }
+    .demo { border: 1px dashed #999; padding: 8px; margin: 0 0 12px; }
+  </style>
+</head>
+<body>
+  <h1>6.4 Objetos estándar</h1>
+  <p>Pulsa cada botón para ejecutar el ejemplo.</p>
+
+  <h2>Constructores Number, String, Boolean y Array</h2>
+  <p><button onclick="ejemplo_6_83()">Listado 6-83</button> Creando números con un constructor</p>
+  <p><button onclick="ejemplo_6_84()">Listado 6-84</button> Números a partir de texto</p>
+  <p><button onclick="ejemplo_6_85()">Listado 6-85</button> Operaciones con objetos</p>
+  <p><button onclick="ejemplo_6_86()">Listado 6-86</button> Array con constructor</p>
+  <p><button onclick="ejemplo_6_87()">Listado 6-87</button> Array vacío con constructor</p>
+
+  <h2>Objetos String</h2>
+  <p><button onclick="ejemplo_6_88()">Listado 6-88</button> length: cantidad de caracteres</p>
+  <p><button onclick="ejemplo_6_89()">Listado 6-89</button> Iterando sobre los caracteres</p>
+  <p><button onclick="ejemplo_6_90()">Listado 6-90</button> trim(): quitar espacios</p>
+  <p><button onclick="ejemplo_6_91()">Listado 6-91</button> Procesando una cadena</p>
+  <p><button onclick="ejemplo_6_92()">Listado 6-92</button> toUpperCase(): a mayúsculas</p>
+  <p><button onclick="ejemplo_6_93()">Listado 6-93</button> substr(): copiar caracteres</p>
+  <p><button onclick="ejemplo_6_94()">Listado 6-94</button> substr() hasta el final</p>
+  <p><button onclick="ejemplo_6_95()">Listado 6-95</button> Índices negativos</p>
+  <p><button onclick="ejemplo_6_96()">Listado 6-96</button> substring(): entre dos índices</p>
+  <p><button onclick="ejemplo_6_97()">Listado 6-97</button> split(): obtener las palabras</p>
+  <p><button onclick="ejemplo_6_98()">Listado 6-98</button> startsWith(): buscar al comienzo</p>
+  <p><button onclick="ejemplo_6_99()">Listado 6-99</button> includes(): buscar en todo el texto</p>
+  <p><button onclick="ejemplo_6_100()">Listado 6-100</button> indexOf(): ubicación de un texto</p>
+  <p><button onclick="ejemplo_6_101()">Listado 6-101</button> replace(): reemplazar texto</p>
+
+  <h2>Objetos Array (ejemplos propios)</h2>
+  <p><button onclick="ejemplo_A_1()">Ejemplo A-1</button> push(), pop(), unshift(), shift()</p>
+  <p><button onclick="ejemplo_A_2()">Ejemplo A-2</button> concat(), splice() y slice()</p>
+  <p><button onclick="ejemplo_A_3()">Ejemplo A-3</button> indexOf(), filter() y every()</p>
+  <p><button onclick="ejemplo_A_4()">Ejemplo A-4</button> map(), sort(), reverse() y join()</p>
+
+  <h2>Objetos Date (ejemplos propios)</h2>
+  <p><button onclick="ejemplo_D_1()">Ejemplo D-1</button> Fecha actual y sus partes</p>
+  <p><button onclick="ejemplo_D_2()">Ejemplo D-2</button> Diferencia entre fechas</p>
+
+  <h2>Objeto Math (ejemplos propios)</h2>
+  <p><button onclick="ejemplo_M_1()">Ejemplo M-1</button> Redondeo, máximo y potencias</p>
+  <p><button onclick="ejemplo_M_2()">Ejemplo M-2</button> Número aleatorio (dado)</p>
+
+  <h2>Objetos Window y Document (ejemplos propios)</h2>
+  <p><button onclick="ejemplo_W_1()">Ejemplo W-1</button> Datos de la ventana y temporizadores</p>
+  <p><button onclick="ejemplo_W_2()">Ejemplo W-2</button> Contador con setInterval()</p>
+  <p><button onclick="ejemplo_DOC_1()">Ejemplo DOC-1</button> getElementById() y querySelector()</p>
+  <div class="demo"><p id="parrafo-doc1">Texto original del párrafo</p><p class="nota-doc1">Primera nota</p><p class="nota-doc1">Segunda nota</p></div>
+
+  <h2>Objetos Element (ejemplos propios)</h2>
+  <p><button onclick="ejemplo_E_1()">Ejemplo E-1</button> Modificar contenido y estilos</p>
+  <div class="demo"><p id="parrafo-e1">Soy un párrafo</p></div>
+  <p><button onclick="ejemplo_E_2()">Ejemplo E-2</button> Leer y cambiar atributos</p>
+  <div class="demo"><input id="campo-e2" type="text" value="Juan"></div>
+
+  <h2>Creando objetos Element (ejemplo propio)</h2>
+  <p><button onclick="ejemplo_E_3()">Ejemplo E-3</button> createElement() y appendChild()</p>
+  <div class="demo"><div id="contenedor-e3"></div></div>
+
+  <script src="ejercicios%206.4.js"></script>
+</body>
+</html>
