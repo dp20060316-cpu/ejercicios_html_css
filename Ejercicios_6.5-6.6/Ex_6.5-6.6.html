@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Web title</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Testing HTML">
+    <meta name="keywords" content="html x css">
+    <link rel="stylesheet" href="158.css">
+
+    <style>
+        #contenedor { width: 500px; height: 40px; padding: 10px; border: 1px solid #999999; }
+        #barra { width: 0px; height: 40px; background-color: #000099; }
+        #bloque { display: inline-block; width: 150px; height: 150px; background-color: #990000; }
+        .azul { background: #0099EE; }
+        .negro { background: #000000; color: #FFFFFF; }
+    </style>
+</head>
+
+<body>
+    <section>
+        <img src="image.jpg" width="120" alt="src image">
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Phasellus accumsan sapien cursus dui fermentum aliquam. 
+            Duis rutrum ligula ac quam rutrum venenatis. Nulla sollicitudin 
+            nulla non magna tincidunt facilisis. Mauris a neque mattis, 
+            vehicula erat eu, egestas ante. Nunc et lectus vitae felis tempus 
+            scelerisque. Nulla imperdiet ultrices ante id ultricies. Donec 
+            tempus velit ac sem rutrum, ac luctus erat luctus. Mauris sed 
+            mauris pulvinar, auctor magna viverra, suscipit velit. Integer 
+            nec diam pharetra, mollis quam at, accumsan turpis. Nam mi metus, 
+            euismod sit amet urna non, eleifend scelerisque leo. Phasellus 
+            luctus accumsan risus, a tempus velit dapibus vel. In venenatis 
+            urna suscipit, hendrerit tortor non, feugiat ligula. Sed ornare 
+            risus quis lacinia varius. Morbi eu massa pellentesque, euismod augue 
+            sit amet, scelerisque ex. Cras erat ipsum, eleifend non risus at, 
+            semper accumsan felis.
+        </p>
+
+        <div class="clearfix"></div>
+    </section>
+
+    <section id="prueba">
+        <h1>Sitio Web</h1>
+        <p id="subtitulo" class="azul">dea un html con js br0</p>
+
+        <button type="button" id="b_color">Color</button>
+        <button type="button" id="b_agregar">Agregar</button>
+        <button type="button" id="b_mensaje">Mostrar mensaje</button>
+        <button type="button" id="b_timer">Timer 5 seg</button>
+        <button type="button" id="b_parar">Stop timer</button>
+
+        <div id="mensajes">
+            <p>Mensaje 1</p>
+            <p>Mensaje 2</p>
+            <p>Mensaje 3</p>
+        </div>
+
+        <div id="contenedor">
+            <div id="barra"></div>
+        </div>
+
+        <div id="bloque"></div>
+    </section>
+
+    <footer>
+        <p>Lorem Ipsum</p>
+    </footer>
+
+    <script>
+
+    console.log(window.innerWidth + " x " + window.innerHeight);
+    console.log(location.href);
+
+    function hora() {
+        var h = new Date();
+        console.log(h.toTimeString());
+    }
+
+    var segundos = 0;
+    var intervalo = setInterval(contar, 1000);
+    function contar() {
+        segundos++;
+    }
+
+    function iniciar() {
+        var elem = document.getElementById("subtitulo");
+        console.log("id: " + elem.id);
+
+        var ps = document.getElementsByTagName("p");
+        console.log("hay " + ps.length + " p");
+
+        var primero = document.querySelector("section > p");
+        console.log(primero.tagName);
+
+        var sec = document.getElementById("prueba");
+        console.log(sec.getElementsByTagName("p").length);
+
+        elem.style.width = "300px";
+        elem.style.border = "1px solid #FF0000";
+        elem.style.padding = "20px";
+        console.log("clientWidth: " + elem.clientWidth);
+
+        elem.innerHTML = elem.innerHTML + " El Licey e' el mejor";
+
+        document.getElementById("b_color").addEventListener("click", function() {
+            elem.classList.toggle("azul");
+            console.log(elem.classList.contains("azul"));
+        });
+
+        elem.addEventListener("dblclick", function() {
+            elem.className = "negro";
+        });
+
+        document.getElementById("b_agregar").addEventListener("click", function() {
+            var nuevo = document.createElement("p");
+            nuevo.innerHTML = "Este es un elemento nuevo";
+            sec.appendChild(nuevo);
+        });
+
+        document.getElementById("b_mensaje").addEventListener("click", mostrar);
+
+        document.getElementById("b_timer").addEventListener("click", function() {
+            setTimeout(hora, 5000);
+        });
+
+        document.getElementById("b_parar").addEventListener("click", function() {
+            clearInterval(intervalo);
+            console.log("Total: " + segundos + " segundos");
+        });
+
+        var lista = document.querySelectorAll("#mensajes > p");
+        for (var f = 0; f < lista.length; f++) {
+            lista[f].addEventListener("click", function(x) {
+                return function(e) {
+                    cambiar(e, x);
+                };
+            }(f));
+        }
+
+        document.getElementById("contenedor").addEventListener("mousemove", moverBarra);
+        window.addEventListener("click", posicion);
+        window.addEventListener("keydown", tecla);
+    }
+
+    function mostrar() {
+        console.log("Presiono el boton");
+    }
+
+    function cambiar(e, valor) {
+        var elem = e.target;
+        elem.style.backgroundColor = "#999999";
+        elem.innerHTML = "Valor " + valor;
+    }
+
+    function posicion(e) {
+        console.log("Posicion: " + e.clientX + " / " + e.clientY);
+    }
+
+    function moverBarra(e) {
+        var ancho = e.offsetX - 10;
+        if (ancho < 0) {
+            ancho = 0;
+        } else if (ancho > 500) {
+            ancho = 500;
+        }
+        document.getElementById("barra").style.width = ancho + "px";
+    }
+
+    function tecla(e) {
+        var bloque = document.getElementById("bloque");
+        var ancho = bloque.clientWidth;
+
+        switch (e.key) {
+            case "0": bloque.style.backgroundColor = "#990000"; break;
+            case "1": bloque.style.backgroundColor = "#009900"; break;
+            case "2": bloque.style.backgroundColor = "#000099"; break;
+            case "3": bloque.style.backgroundColor = "#999900"; break;
+            case "4": bloque.style.backgroundColor = "#009999"; break;
+            case "5": bloque.style.backgroundColor = "#990099"; break;
+            case "ArrowUp": ancho += 10; break;
+            case "ArrowDown": ancho -= 10; break;
+        }
+        if (ancho < 50) {
+            ancho = 50;
+        }
+        bloque.style.width = ancho + "px";
+        bloque.style.height = ancho + "px";
+    }
+
+    window.addEventListener("load", iniciar);
+
+    var nums = [0, 5, 103, 24, 81];
+    for (var f = 0; f < nums.length; f++) {
+        console.log("f = " + f);
+    }
+    console.log("f al final: " + f);
+
+    console.assert(nums.length == 4, "no tiene 4 elementos");
+
+    function mostrarError(e) {
+        console.log("Error: " + e.error);
+        console.log("Mensaje: " + e.message);
+        console.log("Linea: " + e.lineno);
+        console.log("Columna: " + e.colno);
+        console.log("URL: " + e.filename);
+    }
+    window.addEventListener("error", mostrarError);
+
+    var existencia = 5;
+    function vendido(cantidad) {
+        if (cantidad > existencia) {
+            var error = {
+                name: "ErrorExistencia",
+                message: "Sin Existencia"
+            };
+            throw error;
+        } else {
+            existencia = existencia - cantidad;
+        }
+    }
+
+    try {
+        vendido(8);
+    } catch (error) {
+        console.log(error.message);
+    }
+
+    funcionfalsa();
+    </script>
+</body>
+</html>
